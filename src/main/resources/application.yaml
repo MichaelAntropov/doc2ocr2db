@@ -1,0 +1,12 @@
+spring:
+  servlet:
+    multipart:
+      max-file-size: 4MB
+  cloud:
+    gcp:
+      credentials:
+        location: ${GOOGLE_APPLICATION_CREDENTIALS}
+
+doc2ocr2db:
+  tesseract:
+    trained-data-path: classpath:tesseract
