@@ -31,11 +31,11 @@ public class ScanDocumentController {
 
     @GetMapping(value = {"/", "/scan-document"})
     public String showScanDocumentPage() {
-        return "scanDocument";
+        return "scanDocument/scanDocument";
     }
 
     @PostMapping(value = {"/scan-document"})
-    public void scanDocumentImageAndReturnTextFile(@RequestParam("file") MultipartFile file, HttpServletResponse response) {
+    public void scanDocumentImageAndReturnTextFile(@RequestParam("documentToScan") MultipartFile file, HttpServletResponse response) {
         LOGGER.info("Uploading image for OCR");
 
         try {
