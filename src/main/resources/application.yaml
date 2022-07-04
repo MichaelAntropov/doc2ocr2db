@@ -1,4 +1,33 @@
 spring:
+  profiles:
+    active: ${DOC2OCR2DB_ACTIVE_PROFILE:dev}
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: dev
+  servlet:
+    multipart:
+      max-file-size: 4MB
+  thymeleaf:
+    cache: false
+  cloud:
+    gcp:
+      credentials:
+        location: ${GOOGLE_APPLICATION_CREDENTIALS}
+
+doc2ocr2db:
+  tesseract:
+    trained-data-path: classpath:tesseract
+
+---
+
+spring:
+  config:
+    activate:
+      on-profile: prod
   servlet:
     multipart:
       max-file-size: 4MB
